@@ -23,7 +23,17 @@ public class FilmMakerManager {
     }
 
     public FilmMaker[] findAll() {
-        return films;
+        int resultLength = films.length;
+        if (resultLength >= limitFilms) {
+            resultLength = limitFilms;
+        } else {
+            resultLength = films.length;
+        }
+        FilmMaker[] result = new FilmMaker[resultLength];
+        for (int i = 0; i < resultLength; i++) {
+            result[i] = films[i];
+        }
+        return result;
     }
 
     public FilmMaker[] findLast() {

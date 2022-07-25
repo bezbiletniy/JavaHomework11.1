@@ -34,32 +34,6 @@ public class FilmMakerManagerTest {
     }
 
     @Test
-    public void shouldAddAllFilms() {
-        FilmMakerManager newFilm = new FilmMakerManager();
-        newFilm.addFilm(film1);
-        newFilm.addFilm(film2);
-        newFilm.addFilm(film3);
-        newFilm.addFilm(film4);
-        newFilm.addFilm(film5);
-        newFilm.addFilm(film6);
-        newFilm.addFilm(film7);
-        newFilm.addFilm(film8);
-        newFilm.addFilm(film9);
-        newFilm.addFilm(film10);
-        newFilm.addFilm(film11);
-        newFilm.addFilm(film12);
-        newFilm.addFilm(film13);
-        newFilm.addFilm(film14);
-        newFilm.addFilm(film15);
-
-        FilmMaker[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11, film12, film13, film14, film15};
-        FilmMaker[] actual = newFilm.findAll();
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-
-    @Test
     public void shouldNotAddFilms(){
         FilmMakerManager newFilm = new FilmMakerManager();
 
@@ -136,6 +110,66 @@ public class FilmMakerManagerTest {
 
         FilmMaker[] expected = {};
         FilmMaker[] actual = newFilm.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAddMoreThanLimitFilms() {
+        FilmMakerManager newFilm = new FilmMakerManager();
+        newFilm.addFilm(film1);
+        newFilm.addFilm(film2);
+        newFilm.addFilm(film3);
+        newFilm.addFilm(film4);
+        newFilm.addFilm(film5);
+        newFilm.addFilm(film6);
+        newFilm.addFilm(film7);
+        newFilm.addFilm(film8);
+        newFilm.addFilm(film9);
+        newFilm.addFilm(film10);
+        newFilm.addFilm(film11);
+
+        FilmMaker[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9, film10};
+        FilmMaker[] actual = newFilm.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAddLessThanLimitFilms() {
+        FilmMakerManager newFilm = new FilmMakerManager();
+        newFilm.addFilm(film1);
+        newFilm.addFilm(film2);
+        newFilm.addFilm(film3);
+        newFilm.addFilm(film4);
+        newFilm.addFilm(film5);
+        newFilm.addFilm(film6);
+        newFilm.addFilm(film7);
+        newFilm.addFilm(film8);
+        newFilm.addFilm(film9);
+
+        FilmMaker[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9};
+        FilmMaker[] actual = newFilm.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAddLimitFilms() {
+        FilmMakerManager newFilm = new FilmMakerManager();
+        newFilm.addFilm(film1);
+        newFilm.addFilm(film2);
+        newFilm.addFilm(film3);
+        newFilm.addFilm(film4);
+        newFilm.addFilm(film5);
+        newFilm.addFilm(film6);
+        newFilm.addFilm(film7);
+        newFilm.addFilm(film8);
+        newFilm.addFilm(film9);
+        newFilm.addFilm(film10);
+
+        FilmMaker[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9, film10};
+        FilmMaker[] actual = newFilm.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
